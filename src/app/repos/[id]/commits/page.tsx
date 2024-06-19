@@ -23,6 +23,7 @@ async function Commits({repoName, searchParams}: {repoName: string, searchParams
     if ((commits as any).status === '404') {
         return <div>Not FOUND</div>
     }
+    console.log(commits.map((com) => com.commit.author), 'COM')
     return <ul className="bg-white rounded-lg shadow divide-y divide-gray-200 max-w-sm">
         {commits ? commits.map(({commit}, key: number) =>
             <li className="px-6 py-4" key={key}>
@@ -30,7 +31,7 @@ async function Commits({repoName, searchParams}: {repoName: string, searchParams
                     <span className="font-semibold text-lg overflow-hidden">{commit.message}</span>
                     <span className="text-gray-500 text-xs">{toDate(commit.committer.date)}</span>
                 </div>
-                <p className="text-gray-700">{commit.comment_count}</p>
+                <p className="text-gray-700 mt-[10px]">Author: <span className={'font-bold'}>{commit.author.name}</span></p>
             </li>
         ) : <li>Not Found</li>}
     </ul>
