@@ -23,7 +23,6 @@ async function Commits({repoName, searchParams}: {repoName: string, searchParams
     if ((commits as any).status === '404') {
         return <div>Not FOUND</div>
     }
-    console.log(commits.map((com) => com.commit.author), 'COM')
     return <ul className="bg-white rounded-lg shadow divide-y divide-gray-200 max-w-sm">
         {commits ? commits.map(({commit}, key: number) =>
             <li className="px-6 py-4" key={key}>
