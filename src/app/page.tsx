@@ -15,13 +15,11 @@ export default function Home() {
               <div className="mb-5">
                 <Input value={form.token}
                        onChange={(e) => setForm({...form, token: e.target.value})}
-                       label={'Personal Access Token'}
-                       required />
+                       label={'Personal Access Token'} />
               </div>
               <div className="mb-5">
                 <Input label={'Github Username'}
-                       onChange={(e) => setForm({...form, username: e.target.value})}
-                       required />
+                       onChange={(e) => setForm({...form, username: e.target.value})}/>
               </div>
               <button type="submit"
                       onClick={() => {

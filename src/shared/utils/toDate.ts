@@ -1,6 +1,12 @@
 export function toDate(date: string) {
-    const newDate = new Date(date)
-        .toISOString()
-        .match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/)
-    return newDate ? newDate[1] + ' ' + newDate[2] : ''
+    const weekDays =
+        ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const monthsArr =
+        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const currentDateObj = new Date();
+    const currentDay = weekDays[currentDateObj.getDay()];
+    const currentDate  = currentDateObj.getDate();
+    const currentMonth  = monthsArr[currentDateObj.getMonth()];
+    const currentYear = currentDateObj.getFullYear();
+    return `${currentDay} ${currentDate} ${currentMonth}, ${currentYear}`
 }

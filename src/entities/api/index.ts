@@ -9,7 +9,6 @@ const Api = {
 
 
 export const getRepos = async (username: string) => {
-    console.log(FetchParams, username)
     return fetch(DOMAIN_PREFIX + Api.REPOS(username), {
         cache: 'no-cache',
         next: {
