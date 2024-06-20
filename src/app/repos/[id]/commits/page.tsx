@@ -20,9 +20,6 @@ async function Commits({repoName, searchParams}: {repoName: string, searchParams
     }
     const result = await getCommits(repoName, 'CarryMartes')
     const commits: CommitDto[] = await result.json();
-    if ((commits as any).status === '404') {
-        return <div>Not FOUND</div>
-    }
     return <ul className="bg-white rounded-lg shadow divide-y divide-gray-200 max-w-sm">
         {commits ? commits.map(({commit}, key: number) =>
             <li className="px-6 py-4" key={key}>
