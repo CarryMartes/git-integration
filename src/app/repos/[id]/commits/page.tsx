@@ -19,7 +19,7 @@ async function Commits({repoName, searchParams}: {repoName: string, searchParams
         'Authorization': `Bearer ${searchParams.token}`
     }
     const result = await getCommits(repoName, 'CarryMartes')
-    const commits: CommitDto[] = await result;
+    const commits: CommitDto[] = await result.json();
     if ((commits as any).status === '404') {
         return <div>Not FOUND</div>
     }
