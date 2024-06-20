@@ -25,5 +25,5 @@ export const getCommits = (repoName: string, username: string) => {
             tags: ['commits']
         },
         headers: FetchParams.Headers
-    });
+    }).then((res) => res.json());
 }
