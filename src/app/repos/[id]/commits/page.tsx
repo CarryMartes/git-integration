@@ -19,7 +19,7 @@ async function Commits({repoName, searchParams}: {repoName: string, searchParams
         'Authorization': `Bearer ${searchParams.token}`
     }
     const result = await getCommits(repoName, 'CarryMartes')
-    const commits: CommitDto[] = await result.json();
+    const commits: CommitDto[] = await result;
     return <ul className="bg-white rounded-lg shadow divide-y divide-gray-200 max-w-sm">
         {commits ? commits.map(({commit}, key: number) =>
             <li className="px-6 py-4" key={key}>
